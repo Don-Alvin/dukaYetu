@@ -1,4 +1,4 @@
-const dotenv = require("dotenv").config({ path: "./config/.env" });
+const dotenv = require("dotenv").config({ path: "./configs/.env" });
 const app = require("./app");
 const connectDatabase = require("./config/database");
 

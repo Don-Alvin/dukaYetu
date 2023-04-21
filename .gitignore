@@ -1,2 +1,5 @@
 server/node_modules
+server/configs
+server/utils
+
 client/node_modules

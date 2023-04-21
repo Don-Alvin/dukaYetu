@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node server.js",
     "dev": " export NODE_ENV=DEVELOPMENT&& nodemon server.js",
-    "prod": "export NODE_ENV=PRODUCTION&& nodemon server.js"
+    "prod": "export NODE_ENV=PRODUCTION&& nodemon server.js",
+    "seeder": "node utils/seeder.js"
   },
   "keywords": [],
   "author": "Don Alvin",
