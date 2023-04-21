@@ -4,15 +4,16 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev" : "nodemon server.js",
-    "start": "node server.js"
+    "start": "node server.js",
+    "dev": " export NODE_ENV=DEVELOPMENT&& nodemon server.js",
+    "prod": "export NODE_ENV=PRODUCTION&& nodemon server.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Don Alvin",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^16.0.3",
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "mongoose": "^7.0.4"
   }
 }
