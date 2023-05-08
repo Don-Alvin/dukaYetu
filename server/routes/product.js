@@ -10,7 +10,7 @@ const {
 const router = Router();
 
 router.route("/products").get(getProducts);
-router.route("/adminproduct/new").post(createNewProduct);
+router.route("/admin/product/new").post(createNewProduct);
 router.route("/product/:id").get(getSingleProduct);
 router.route("admin/product/:id").put(updateSingleProduct);
 router.route("admin/product/:id").delete(deleteSingleProduct);
