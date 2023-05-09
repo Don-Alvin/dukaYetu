@@ -10,10 +10,12 @@ const {
 
 const { isAuthenticatedUser } = require("../middlewares/auth");
 
-router.route("/products").get(isAuthenticatedUser, getProducts);
-router.route("/admin/product/new").post(createNewProduct);
+router.route("/products").get(getProducts);
+router.route("/admin/product/new").post(isAuthenticatedUser, createNewProduct);
 router.route("/product/:id").get(getSingleProduct);
-router.route("admin/product/:id").put(updateSingleProduct);
-router.route("admin/product/:id").delete(deleteSingleProduct);
+router.route("admin/product/:id").put(isAuthenticatedUser, updateSingleProduct);
+router
+	.route("admin/product/:id")
+	.delete(isAuthenticatedUser, deleteSingleProduct);
 
 module.exports = router;
