@@ -1,4 +1,5 @@
 const { Router } = require("express");
+const router = Router();
 const {
 	getProducts,
 	createNewProduct,
@@ -7,9 +8,9 @@ const {
 	deleteSingleProduct,
 } = require("../controllers/productControllers");
 
-const router = Router();
+const { isAuthenticatedUser } = require("../middlewares/auth");
 
-router.route("/products").get(getProducts);
+router.route("/products").get(isAuthenticatedUser, getProducts);
 router.route("/admin/product/new").post(createNewProduct);
 router.route("/product/:id").get(getSingleProduct);
 router.route("admin/product/:id").put(updateSingleProduct);
