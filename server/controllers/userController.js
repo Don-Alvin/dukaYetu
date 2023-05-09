@@ -27,7 +27,7 @@ exports.registerUser = catchAsyncErrors(async (req, res, next) => {
 exports.loginUser = catchAsyncErrors(async (req, res, next) => {
 	const { email, password } = req.body;
 
-	if (!email || password) {
+	if (!email || !password) {
 		return next(new ErrorHandler("Please enter email and password"));
 	}
 
@@ -134,12 +134,11 @@ exports.getUserProfile = catchAsyncErrors(async (req, res, next) => {
 	});
 });
 
-// Update / Change Password = > /api.v1/password/update
+// Update / Change Password = > /api/v1/password/update
 exports.updatePassword = catchAsyncErrors(async (req, res, next) => {
 	const user = await User.findById(req.user.id).select("+password");
 
 	// Check previous user password
-
 	const isMatched = await user.comparePassword(req.body.oldPassword);
 
 	if (!isMatched) {
