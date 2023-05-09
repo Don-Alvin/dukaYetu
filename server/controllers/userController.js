@@ -124,6 +124,16 @@ exports.resetPassword = catchAsyncErrors(async (req, res, next) => {
 	sendToken(user, 200, res);
 });
 
+// Get currently logged in user details => /api/v1/me
+exports.getUserProfile = catchAsyncErrors(async (req, res, next) => {
+	const user = await User.findById(req.user.id);
+
+	res.status(200).json({
+		success: true,
+		user,
+	});
+});
+
 // Logout => /api/v1/logout
 exports.logoutUser = catchAsyncErrors(async (req, res, next) => {
 	res.cookie("token", null, {
