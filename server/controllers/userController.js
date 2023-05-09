@@ -151,6 +151,25 @@ exports.updatePassword = catchAsyncErrors(async (req, res, next) => {
 	sendToken(user, 200, res);
 });
 
+// Update user profile => /api/v1/password/update
+exports.updateProfile = catchAsyncErrors(async (req, res, next) => {
+	const newUserData = {
+		name: req.body.name,
+		email: req.body.email,
+		// update avatar: TODO
+	};
+
+	const user = await User.findByIdAndUpdate(req.user.id, newUserData, {
+		new: true,
+		runValidators: true,
+		useFindAndModify: false,
+	});
+
+	res.status(200).json({
+		success: true,
+	});
+});
+
 // Logout => /api/v1/logout
 exports.logoutUser = catchAsyncErrors(async (req, res, next) => {
 	res.cookie("token", null, {
@@ -161,5 +180,31 @@ exports.logoutUser = catchAsyncErrors(async (req, res, next) => {
 	res.status(200).json({
 		success: true,
 		message: "Logged out",
+	});
+});
+
+// ADMIN ROUTES
+
+// Get all users => /api/v1/admin/users
+exports.allUsers = catchAsyncErrors(async (req, res, next) => {
+	const users = await User.find();
+
+	res.status(200).json({
+		success: true,
+		users,
+	});
+});
+
+// Get user details => /api/v1/admin/user/:id
+exports.getUserDetails = catchAsyncErrors(async (req, res, next) => {
+	const user = await User.findById(req.params.id);
+
+	if (!user) {
+		return next(new ErrorHandler(`User not found with id: ${req.param.id}`));
+	}
+
+	res.status(200).json({
+		success: true,
+		user,
 	});
 });
