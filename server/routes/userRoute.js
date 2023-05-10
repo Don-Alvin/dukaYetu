@@ -46,6 +46,4 @@ router
 	.route("/admin/user/:id")
 	.delete(isAuthenticatedUser, authorizedRoles("admin"), deleteUser);
 
-router.route("/review").put(isAuthenticatedUser, createProductReview);
-
 module.exports = router;
