@@ -17,6 +17,7 @@ const {
 } = require("../controllers/userController");
 
 const { isAuthenticatedUser, authorizedRoles } = require("../middlewares/auth");
+const { createProductReview } = require("../controllers/productControllers");
 
 router.route("/register").post(registerUser);
 router.route("/login").post(loginUser);
@@ -44,5 +45,7 @@ router
 router
 	.route("/admin/user/:id")
 	.delete(isAuthenticatedUser, authorizedRoles("admin"), deleteUser);
+
+router.route("/review").put(isAuthenticatedUser, createProductReview);
 
 module.exports = router;
