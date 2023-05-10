@@ -6,11 +6,13 @@ const errorMiddleware = require("./middlewares/errors");
 app.use(express.json());
 app.use(cookieParser());
 
-const products = require("./routes/product");
-const user = require("./routes/user");
+const products = require("./routes/productRoute");
+const user = require("./routes/userRoute");
+const order = require("./routes/orderRoute");
 
 app.use("/api/v1", products);
 app.use("/api/v1", user);
+app.use("/api/v1/", order);
 
 // Middeleware to handle errors
 app.use(errorMiddleware);
