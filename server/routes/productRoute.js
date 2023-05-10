@@ -19,10 +19,10 @@ router
 	.route("/admin/product/new")
 	.post(isAuthenticatedUser, authorizedRoles("admin"), createNewProduct);
 router
-	.route("admin/product/:id")
+	.route("/admin/product/:id")
 	.put(isAuthenticatedUser, authorizedRoles("admin"), updateSingleProduct);
 router
-	.route("admin/product/:id")
+	.route("/admin/product/:id")
 	.delete(isAuthenticatedUser, authorizedRoles("admin"), deleteSingleProduct);
 
 router.route("/review").put(isAuthenticatedUser, createProductReview);
