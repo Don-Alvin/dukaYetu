@@ -18,6 +18,10 @@ body * {
 	background-color: #232f3e;
 	display: flex;
 	align-content: center;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 100;
 }
 
 .nav {
@@ -25,6 +29,11 @@ body * {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+}
+
+.home {
+	position: relative;
+	top: 130px;
 }
 
 .logo img {
@@ -54,18 +63,38 @@ body * {
 	display: flex;
 	align-items: center;
 	gap: 30px;
-	color: #febd69;
 }
 
 #login_btn {
-	color: #febd69;
+	background-color: #febd69;
 	font-size: 1.6rem;
+}
+
+.cart-group {
+	display: flex;
+	align-items: center;
+	gap: 3px;
+}
+
+#count {
+	font-size: 1.4rem;
+	background-color: #febd69;
+	padding: 0 2px;
+	border-radius: 4px;
 }
 
 #cart {
 	color: #febd69;
 	font-size: 1.6rem;
 }
+
+.login {
+	position: relative;
+	top: 130px;
+	font-size: 1.6rem;
+	width: 100%;
+}
+
 .footer {
 	position: fixed;
 	bottom: 0;

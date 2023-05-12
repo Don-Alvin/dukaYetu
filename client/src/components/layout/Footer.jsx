@@ -1,10 +1,13 @@
 import React from 'react'
 
 const Footer = () => {
+
+  const date = new Date().getFullYear()
+
   return (
     <footer className='footer'>
         <p class="text-center text-white mt-1">
-            Shopping Cart - 2019-2020, All Rights Reserved
+            Duka Yetu - {date} , All Rights Reserved
         </p>
     </footer>
   )
