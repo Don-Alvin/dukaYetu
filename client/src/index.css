@@ -66,3 +66,14 @@ body * {
 	color: #febd69;
 	font-size: 1.6rem;
 }
+.footer {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	background-color: #232f3e;
+	font-size: 1.6rem;
+	padding: 0.5rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
