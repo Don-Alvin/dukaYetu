@@ -4,7 +4,7 @@ import MetaData from './layout/MetaData'
 const Home = () => {
   return (
     <div className='home container container-fluid'>
-      <MetaData title={'Buy Best Products Online'} />
+      <MetaData title={'Buy Best Products Online'} subtitle={'homepage'} content={'first page of site'} />
       <h1 id="products_heading">Latest Products</h1>
 
         <section id="products" className="container mt-5">

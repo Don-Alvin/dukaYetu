@@ -1,6 +1,6 @@
 import React from 'react'
 import Layout from './components/layout/Layout'
-import { createBrowserRouter, createRoutesFromElements, Route } from 'react-router-dom'
+import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom'
 import Home from './components/Home'
 import Login from './components/Login'
 
@@ -16,9 +16,7 @@ export const router = createBrowserRouter(
 
 const App = () => {
   return (
-    <div>
-      <Layout />
-    </div>
+      <RouterProvider router={router} />
   )
 }
 
