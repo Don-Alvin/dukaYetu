@@ -3,3 +3,4 @@ server/configs
 server/utils
 
 client/node_modules
+client/.env
